@@ -4,7 +4,7 @@
 <head>
     <title>Cronicas Relatos Y Leyendas De Atoyac Ver</title>
     <style>
-        body {
+         body {
             background-image: url('prueba.jpg');
             background-size: cover;
             background-repeat: no-repeat;
@@ -33,12 +33,46 @@
             font-size: 24px; /* Ajusta el tamaño de fuente según tus preferencias */
             margin-top: 10px; /* Ajusta el margen superior según tus preferencias */
         }
+
+        /* Estilos para la alerta */
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        .alert-box {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+
+        .btn-group {
+            margin-top: 20px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            margin: 0 10px;
+            cursor: pointer;
+        }
     </style>
 </head>
 
 <body>
+    <!-- ... Contenido previo ... -->
+
     <h2>Recopilador: Nazario Guadalupe Cebada Morales</h2>
-    <h1>desarrollador web :Marck Zucaritas</h1>
+    <h1>desarrollador web: Marck Zucaritas</h1>
     
     <!-- Botón de imagen para descargar el PDF -->
     <a href="4.pdf" class="image-button" download="plan_de_san_Ricardo.pdf">
@@ -47,6 +81,34 @@
 
     <!-- Subtítulo -->
     <p class="subtitle">Plan de san Ricardo</p>
+
+    <!-- Alerta para la actualización -->
+    <div class="overlay" id="overlay">
+        <div class="alert-box">
+            <h3>La pagina tendra una actualizacion.</h3>
+            <p>Quieres ver como va quedando?</p>
+            <div class="btn-group">
+                <button class="btn" onclick="redirectToIndex()">Si</button>
+                <button class="btn" onclick="closeAlert()">No</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function redirectToIndex() {
+    window.location.href = 'https://cronicas-de-atoyac-veracruz.github.io/index4.html';
+}
+
+
+        function closeAlert() {
+            document.getElementById('overlay').style.display = 'none';
+        }
+
+        // Muestra la alerta al cargar la página
+        window.onload = function () {
+            document.getElementById('overlay').style.display = 'flex';
+        };
+    </script>
 </body>
 
 </html>
